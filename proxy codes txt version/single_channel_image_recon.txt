@@ -1,0 +1,22 @@
+function recon_image_mat_single_channel = single_channel_image_read(single_channel)
+%#codegen
+bin = zeros(1,length(single_channel(:,1))*length(single_channel));
+k=1;
+for i=1:length(single_channel(:,1))
+    bin(1,k:k+length(single_channel)-1) = single_channel(i,:);
+    k = k+length(single_channel);
+end
+binla = dec2bin(bin);
+bintemp = binla;
+bintemp(:,8) = '0';
+new = bin2dec(bintemp)';
+row = length(single_channel(:,1));
+col = length(single_channel);
+p = 1;
+q = 1;
+recon = zeros(row, col)
+for i = 1:row
+    recon(i,1:col) = new(1,col*(i-1)+1:col*i);
+end 
+newimage = recon;
+recon_image_mat_single_channel = newimage;
