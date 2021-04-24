@@ -3,7 +3,7 @@ clear all;
 close all;
 
 %% reading an image and making part of the channels
-image = imread('lala2.jpg');
+image = imread('173872908_217825970141487_8383570939027393537_n.jpg');
 red = image(:,:,1);
 green = image(:,:,2);
 blue = image(:,:,3);
@@ -55,3 +55,5 @@ newimage(:,:,2) = recongreen(:,:);
 newimage(:,:,3) = reconblue(:,:);
 newimage = cast(newimage,'uint8');
 
+x = size(reconred)
+    
