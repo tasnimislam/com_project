@@ -56,9 +56,9 @@ newimage(:,:,3) = reconblue(:,:);
 newimage = cast(newimage,'uint8');
 
 x = size(reconred)
-bpskmod = comm.BPSKModulator.empty(x)
 for i = 1:x(1)
-    bpskmod(i,:) = comm.BPSKModulator(reconred(i, x(2)))
+    bpskmod = comm.BPSKModulator(reconred(i, x(2)))
+    
 end
     
     
